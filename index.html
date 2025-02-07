@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Copy Card Number</title>
+</head>
+<body>
+
+<!-- Link to copy card number (does not show any visible text) -->
+<a href="#" id="copyLink" style="text-decoration: none; color: transparent;">6221061238871711</a>
+
+<script>
+    document.getElementById("copyLink").addEventListener("click", function(e) {
+        e.preventDefault();
+
+        // Create a temporary input element
+        var tempInput = document.createElement("input");
+        tempInput.value = "6221061238871711"; // The card number
+        document.body.appendChild(tempInput);
+
+        // Select the text inside the input field
+        tempInput.select();
+        tempInput.setSelectionRange(0, 99999); // For mobile devices
+
+        // Copy the text to the clipboard
+        document.execCommand("copy");
+
+        // Remove the temporary input element
+        document.body.removeChild(tempInput);
+    });
+</script>
+
+</body>
+</html>
+
